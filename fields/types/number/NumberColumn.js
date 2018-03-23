@@ -17,17 +17,7 @@ var NumberColumn = React.createClass({
     let formattedValue = value;
 
     if (this.props.col.type === 'money') {
-      const currency = this.props.list.fields[this.props.col.path].currency || 'en-gb';
-      const format = this.props.list.fields[this.props.col.path].format || '$0,0.00';
-
-      if (currency) {
-        try {
-          numeral.language(currency, require('numeral/languages/' + currency));
-          numeral.language(currency);
-        } catch (err) {
-          throw new Error('NumberColumn: currency failed to load.');
-        }
-      }
+      const format = this.props.list.fields[this.props.col.path].format || false;
 
       if (format) {
         formattedValue = numeral(value).format(format);
