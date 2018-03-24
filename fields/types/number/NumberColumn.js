@@ -21,9 +21,8 @@ var NumberColumn = React.createClass({
 
       if (format) {
         formattedValue = numeral(value).format(format);
-      } else {
-        formattedValue = numeral(value);
       }
+
     }
 
     return formattedValue;
